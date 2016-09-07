@@ -1,0 +1,12 @@
+<%= form_for :company , url: company_path(@company), method: 'patch', :html => { :multipart => true} do |f|%>
+	Name:<br/>
+	<%= f.text_field :name%><br/>
+	Website:<br/>
+	<%= f.text_field :website %><br/>
+	Address:<br/>
+	<%= f.text_field :address %><br/>
+	Logo:<br/>
+	<%= f.file_field :logo %><br/>
+	<%= f.submit %>
+<% end %>
+<%= link_to 'back', companies_path %>
