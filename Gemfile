@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+ruby '2.3.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 # Use mysql as the database for Active Record
@@ -47,7 +47,8 @@ end
 gem 'execjs'
 gem 'therubyracer'
 gem 'rake'
-gem 'twitter-bootstrap-rails'
+#gem 'twitter-bootstrap-rails'
+gem 'bootstrap-sass'
 gem 'devise'
 gem "omniauth-google-oauth2", "~> 0.2.1"
 gem 'postmark'
@@ -56,4 +57,3 @@ gem 'resque-scheduler', '~> 4.0'
 gem 'paperclip'
 
 gem "cancan"
-gem 'capistrano-ext'

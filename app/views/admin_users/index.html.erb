@@ -1,7 +1,12 @@
 <h2>Users</h2>
+
 <% User.where(role: "user").find_each do |user| %>
-	<%= link_to user.name, admin_user_path(user.id) %>
+
+	<li>
+		<%= link_to user.name, admin_user_path(user.id) %>
+	</li>
 	<br/>
+
 <% end %>
-<%= link_to 'Create New User',  new_admin_user_path%>|
-<%= link_to "Back", admins_path %>
+<%= link_to 'Create New User',  new_admin_user_path , class: "btn btn-default"%>
+<%= link_to "Back", admins_path, class: "btn btn-default" %>

@@ -1,26 +1,36 @@
-<h1>Admin</h1>
-<%= link_to 'Company Management', companies_path %> | 
-<% if current_user.role == 'admin'%>
-	<%= link_to 'User management',  admin_users_path%> | 
-	<%= link_to 'Employee management', employees_path %> | 
-<% else %>
-	<%= link_to 'Employees',employees_path%> |
-<% end %>
-<%= link_to 'Asset Management', admin_assets_path %>
-<br/>
-<% if current_user.role == 'admin'%>
-	<%= link_to 'Edit Admin', edit_admin_path(current_user.id) %>
-	<br/>	
-<% end %>
-Search for employees:
-<%=form_for :employee , url: admins_search_employee_path, method:  "post" do |f| %>
-	<%=f.search_field :search_employee %>
-<% end %>
+<h1 style= "padding-left:20px">Admin</h1>
+ 
+<div class="col-md-3" >
+      <ul class="nav nav-pills nav-stacked">
+        <li ><%= link_to 'Company Management', companies_path %></li>
+        <% if current_user.role == 'admin'%>
+			<li><%= link_to 'User management',  admin_users_path%></li>
+			<li><%= link_to 'Employee management', employees_path %></li> 
+		<% else %>
+			<li><%= link_to 'Employees',employees_path%></li>
+		<% end %>
+        <li><%= link_to 'Asset Management', admin_assets_path %></li>
 
-<br/>
-<%= link_to 'Change Password', "/admins/edit_password/#{current_user.id}" %>
-<br/>
-<% if current_user.role == 'admin'%>
-	<%= link_to 'Messages', messages_path %>
-	<%= link_to 'Newsletters', newsletters_path %>
-<% end %>
+        <% if current_user.role == 'admin'%>
+			<li><%= link_to 'Messages', messages_path %></li>
+			<li><%= link_to 'Newsletters', newsletters_path %></li>
+		<% end %>
+      </ul>
+</div>
+<div class="col-md-3"></div>
+<div class="col-md-3"></div>
+
+<div class="col-md-3" style="text-align:right;">
+	Search for employees:
+	<%=form_for :employee , url: admins_search_employee_path, method:  "post" do |f| %>
+		<%=f.search_field :search_employee %>
+	<% end %>
+	<ul class="nav nav-pills nav-stacked">
+		<% if current_user.role == 'admin'%>
+			<li><%= link_to 'Edit Admin', edit_admin_path(current_user.id) %></li>
+				
+		<% end %>
+
+		<li><%= link_to 'Change Password', "/admins/edit_password/#{current_user.id}" %></li>
+	</ul>
+</div>

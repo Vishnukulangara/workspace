@@ -1,28 +1,33 @@
 <h4>Newsletters</h4>
-<table class = 'table' >
-	<tr>
-		<th>
-			Content&emsp;
-		</th>
-	
-		<th>
-			scheduled at:&emsp;
-
-		</th>
+<% if Newsletter.last.schedule_at >= Time.now %>
+	<table class = 'table' >
+		<tr>
+			<th>
+				Content&emsp;
+			</th>
 		
-	</tr>
-	<% Newsletter.find_each do |n|%>
-		<% if n.schedule_at >= Time.now %>  
-			<tr>
-				<td><%= n.content %></td>
-			
-			
-				<td><%= n.schedule_at%></td>
-				
-			</tr>
-		<% end%>	
-	<% end%>
-</table>
+			<th>
+				scheduled at:&emsp;
 
-<%= link_to 'Schedule Newsletter', new_newsletter_path %>|
-<%= link_to 'back', admins_path %>
+			</th>
+			
+		</tr>
+		<% Newsletter.find_each do |n|%>
+			<% if n.schedule_at >= Time.now %>  
+				<tr>
+					<td><%= n.content %></td>
+				
+				
+					<td><%= n.schedule_at%></td>
+					
+				</tr>
+			<% end%>	
+		<% end%>
+	</table>
+<% else %>
+	No upcoming newsletters!
+<% end%>
+<br/>
+<br/>
+<%= link_to 'Schedule Newsletter', new_newsletter_path, class: "btn btn-default" %>
+<%= link_to 'back', admins_path , class: "btn btn-default"%>

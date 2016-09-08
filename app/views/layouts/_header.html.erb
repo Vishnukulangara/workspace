@@ -1,0 +1,28 @@
+<nav class= "navbar " role="navigation" >
+
+
+    <ul class="nav navbar-nav">
+    <li  style= "font-style:italic" ><%= image_tag Company.first.logo.url(:large) %></li></ul>
+
+
+    <div  class = "col-md col-4" style="font-size:17px; text-align:right; margin-top:20px;">
+			<% if current_user %>
+				<%= link_to 'log out', destroy_user_session_path, method: 'delete' , class: "btn btn-info" %>
+			<% else %>
+		      <% if current_employee %>
+		        <% unless Employee.find_by_email(current_employee.email).nil? %>
+		        	<%= link_to "Sign out", signout_path, id: "sign_out", class: "btn btn-info" %>
+		        <% else %>
+		        	Employee doesnt exists!!!
+		      	<% end %>
+		      <% end %>
+		     <% end %>
+	</div>
+      
+	
+
+				
+
+
+
+</nav>

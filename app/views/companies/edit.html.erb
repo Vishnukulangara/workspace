@@ -4,9 +4,9 @@
 	Website:<br/>
 	<%= f.text_field :website %><br/>
 	Address:<br/>
-	<%= f.text_field :address %><br/>
+	<%= f.text_field :address%><br/>
 	Logo:<br/>
 	<%= f.file_field :logo %><br/>
-	<%= f.submit %>
-<% end %>
-<%= link_to 'back', companies_path %>
+	<%= f.submit :class => "btn btn-default"%><br/>
+<% end %><br/>
+<%= link_to 'back', companies_path, class: "btn btn-default" %>

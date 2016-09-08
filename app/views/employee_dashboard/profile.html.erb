@@ -78,7 +78,9 @@
 		<% end %>
 	</table>
 	<% if current_employee.email == employee.email %>
-		<%= link_to 'Edit Profile',  "/employee_dashboard/edit/#{employee.id}" %>
+		<%= link_to 'Edit Profile',  "/employee_dashboard/edit/#{employee.id}", class: "btn btn-default" %>
+		
+
 	<% else %>
 		<h4>Assets</h4>
 		<% Asset.where(assigned_to: employee.id).find_each do |asset|%>
@@ -86,9 +88,14 @@
 		<% end %>
 		<br/>
 	<% end %>
-	<br/>
-	<%= link_to 'Back', employee_dashboard_index_path %>
+	
+
+	<%= link_to 'Back', employee_dashboard_index_path , class: "btn btn-default"%>
+	
+
 <% else %>
+	
+
 	No employee found
-	<%= link_to 'Back', employee_dashboard_index_path %>
+	<%= link_to 'Back', employee_dashboard_index_path, class: "btn btn-default" %>
 <% end %>

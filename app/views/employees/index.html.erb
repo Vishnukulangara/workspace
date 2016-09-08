@@ -17,7 +17,7 @@
 
 
 <% if current_user.role =='admin' %>
-	<%= link_to 'Create new employee', new_employee_path %>|
+	<%= link_to 'Create new employee', new_employee_path, class: "btn btn-default" %>
 <% end %>
 
-<%= link_to 'Back', admins_path %>
+<%= link_to 'Back', admins_path, class: "btn btn-default" %>

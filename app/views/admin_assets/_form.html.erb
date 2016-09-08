@@ -1,23 +1,23 @@
 <%= form_for @admin_asset, url: admin_assets_path do |f| %>
 	<p>
-		<%= f.label :name %>
+		<%= f.label :name %><br/>
 		<%= f.text_field :name %>
 	</p>
 	<p>
-		<%= f.label :asset_category %>
+		<%= f.label :asset_category %><br/>
 		<%= f.text_field :asset_category %>
 	</p> 
 	<p>
-		<%= f.label :asset_type %>
+		<%= f.label :asset_type %><br/>
 		<%= f.text_field :asset_type %>
 	</p>
 	<p>
-		<%= f.label :specification %>
+		<%= f.label :specification %><br/>
 		<%= f.text_field :specification %>
 	</p>
 	<p>
-		<%= f.submit %>
+		<%= f.submit :class => "btn btn-info" %>
 
 	</p>
 <% end %>
-<%= link_to 'Back', admin_assets_path %>
+<%= link_to 'Back', admin_assets_path , class: "btn btn-default"%>

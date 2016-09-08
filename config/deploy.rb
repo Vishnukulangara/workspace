@@ -15,7 +15,7 @@ set :use_sudo, true
 set :sudo, "sudo -u qburst"
 set :stage, "development"
 set :rails_env, :development
-set :deploy_to, -> { "/home/qburst/vkrepo/workspace" }
+set :deploy_to, -> { "/home/qburst/workspace" }
 
 
 # Default branch is :master
@@ -26,6 +26,7 @@ set :deploy_to, -> { "/home/qburst/vkrepo/workspace" }
 
 # Default value for :scm is :git
 # set :scm, :git
+
 
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh

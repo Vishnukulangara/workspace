@@ -14,8 +14,9 @@
 					<% if m.message_copy != "deleted" %>
 						<tr>
 							<td>					
-								<%= m.message_copy%>
-								<%= link_to 'delete', message_path(m.id), method: 'delete' %>
+								<%= m.message_copy%></td>
+							<td>
+								<%= link_to 'delete', message_path(m.id), method: 'delete', class: "btn btn-danger" %>
 								
 							</td>
 						</tr>
@@ -41,8 +42,9 @@
 						<tr>
 							<td>
 							
-								<%= m.message_copy%>
-								<%= link_to 'delete', message_path(m.id), method: 'delete' %>
+								<%= m.message_copy%></td>
+							<td>
+								<%= link_to 'delete', message_path(m.id), method: 'delete', class: "btn btn-danger" %>
 							
 							</td>
 						</tr>
@@ -56,8 +58,8 @@
 	<br/>
 	<br/>
 	<br/>
-	<%= link_to 'New Message', new_message_path %>|
-	<%= link_to 'Back', employee_dashboard_index_path %>
+	<%= link_to 'New Message', new_message_path , class: "btn btn-info"%>
+	<%= link_to 'Back', employee_dashboard_index_path, class: "btn btn-default"%>
 <% else %>
 	Recieved Messages:<br/>		
 		<% if Message.where(reciever_id: current_user.id).first.nil? %>
@@ -80,8 +82,8 @@
 							<td>
 								<%= Employee.find(m.sender_id).name %>
 							</td>
-							<td><%= link_to 'reply', "/messages/to_employee/#{m.sender_id}" %></td>
-							<td><%= link_to 'delete', message_path(m.id), method: 'delete' %></td>
+							<td><%= link_to 'reply', "/messages/to_employee/#{m.sender_id}", class: "btn btn-primary" %></td>
+							<td><%= link_to 'delete', message_path(m.id), method: 'delete', class: "btn btn-danger" %></td>
 						</tr>
 					<% end %>
 				<% end %>
@@ -115,7 +117,7 @@
 								<%= Employee.find(m.reciever_id).name %>
 
 							</td>
-							<td><%= link_to 'delete', message_path(m.id), method: 'delete' %></td>
+							<td><%= link_to 'delete', message_path(m.id), method: 'delete', class: "btn btn-danger" %></td>
 						</tr>
 					<% end %>
 				<% end %>
@@ -140,13 +142,16 @@
 					<% if m.message != "deleted" %>
 						<tr>
 							<td>							
-								<%=  m.message %>
-								<%= link_to 'delete', "/messages/unarchive/#{m.id}"%>			
-							</td>
+								<%=  m.message %></td>
+
 							<td>
 								<%= Employee.find(m.sender_id).name %>
 							</td>
-							<td><%= link_to 'reply', "/messages/to_employee/#{m.sender_id}" %></td>
+							
+							<td><%= link_to 'reply', "/messages/to_employee/#{m.sender_id}" , class: "btn btn-primary"%></td>
+							<td>
+								<%= link_to 'delete', "/messages/unarchive/#{m.id}", class: "btn btn-danger"%>			
+							</td>
 						</tr>
 					<% end %>
 				<% end %>
@@ -172,16 +177,16 @@
 						<tr>
 							<td>
 							
-								<%=  m.message %>
-								<%= link_to 'delete', "/messages/unarchive/#{m.id}"%>
-								
-							
-							</td>
+								<%=  m.message %></td>
 							<td>
 								<%= Employee.find(m.reciever_id).name %>
 
 							</td>
-						
+							<td>
+								<%= link_to 'delete', "/messages/unarchive/#{m.id}" , class: "btn btn-danger"%>
+								
+							
+							</td>
 						</tr>
 					<% end %>
 				<% end %>
@@ -193,7 +198,7 @@
 	<br/>
 	<br/>
 	<br/>
-	<%= link_to 'New Message', new_message_path %>|
-	<%= link_to 'Back', admins_path %>
+	<%= link_to 'New Message', new_message_path, class: "btn btn-default"%>
+	<%= link_to 'Back', admins_path , class: "btn btn-default"%>
 
 <% end %>

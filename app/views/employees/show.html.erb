@@ -79,9 +79,9 @@
 <% end %>
 <br/><br/>
 <% if current_user.role =='admin' %>
-	<%= link_to 'Send email', "/employees/compose_mail/#{@employee.id}" %>|
-	<%= link_to 'Send Message', "/messages/to_employee/#{@employee.id}" %>|
-	<%= link_to "Edit", edit_employee_path(@employee) %>|
-	<%= link_to "Remove Employee", employee_path(@employee), method: 'delete', data: {confirm: 'are you sure?'} %>|
+	<%= link_to 'Send email', "/employees/compose_mail/#{@employee.id}", class: "btn btn-default" %>
+	<%= link_to 'Send Message', "/messages/to_employee/#{@employee.id}", class: "btn btn-default" %>
+	<%= link_to "Edit", edit_employee_path(@employee), class: "btn btn-default" %>
+	<%= link_to "Remove Employee", employee_path(@employee), method: 'delete', data: {confirm: 'are you sure?'}, class: "btn btn-default" %>
 <% end %>
-<%= link_to 'Back', employees_path %>
+<%= link_to 'Back', employees_path, class: "btn btn-default" %>
