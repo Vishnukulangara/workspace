@@ -47,7 +47,7 @@ end
 gem 'execjs'
 gem 'therubyracer'
 gem 'rake'
-#gem 'twitter-bootstrap-rails'
+gem 'twitter-bootstrap-rails'
 gem 'bootstrap-sass'
 gem 'devise'
 gem "omniauth-google-oauth2", "~> 0.2.1"
