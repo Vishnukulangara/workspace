@@ -21,10 +21,14 @@
 <div class="col-md-3"></div>
 
 <div class="col-md-3" style="text-align:right;">
-	Search for employees:
-	<%=form_for :employee , url: admins_search_employee_path, method:  "post" do |f| %>
-		<%=f.search_field :search_employee %>
+
+
+	<div class = "form-search">
+	<%= form_for :employee , url: admins_search_employee_path, method:  "post" do |f| %>
+
+		<%=f.text_field :search_employee, placeholder: "Search for employees"  %>
 	<% end %>
+	</div>
 	<ul class="nav nav-pills nav-stacked">
 		<% if current_user.role == 'admin'%>
 			<li><%= link_to 'Edit Admin', edit_admin_path(current_user.id) %></li>
