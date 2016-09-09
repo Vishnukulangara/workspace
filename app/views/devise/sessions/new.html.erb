@@ -1,23 +1,48 @@
-<h2>Log in</h2>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
+<div class="alert  alert-info" style="width:26%; margin-left:38%">
+  <h2 style="text-align:center">Login</h2>
   <br/>
+  <ul class="nav nav-tabs">
+      <li class="active"><a data-toggle="tab" href="#admin">Admin</a></li>
+      <li><a data-toggle="tab" href="#employee">Employee</a></li>
+
+   </ul>
+
+  <div class="tab-content">
+      <div id="admin" class="tab-pane fade in active">
+        
+    <%= form_for :user, url: user_session_path do |f| %>
+      <div class="field" style="padding-top:20px">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true %>
+      </div>
+
+      <div class="field" style="padding-top:20px">
+        <%= f.label :password %><br />
+        <%= f.password_field :password, autocomplete: "off" %>
+      </div>
+
+      <br/>
 
 
-  <div class="actions">
-    <%= f.submit "Log in", :class => "btn btn-info"%>
+      <div class="actions" >
+        <%= f.submit "Log in", :class => "btn btn-info"%>
+      </div>
+    <% end %>
+    
+
+      </div>
+      <div id="employee" class="tab-pane fade">
+        <p style="text-align:center"><br/>
+        <%= link_to 'Sign in with google', "/auth/google_oauth2", id: "sign_in" , class: "btn btn-primary"%>
+        </p>
+        
+      </div>
+      
+    </div>
   </div>
-<% end %>
-<br/>
-<%= link_to 'Home', root_path , class: "btn btn-default "%>
+</div>
+
+
+
 
